@@ -28,7 +28,7 @@ namespace SuggestiveService.Controllers
         }
 
         [Route("getpolicy")]
-        [HttpPost]
+        [HttpGet]
         public  string getpolicy(string productName,string scheme)
         {
             var updated = _policyRepository.GetUpdatePolicyNumber(productName, scheme);
