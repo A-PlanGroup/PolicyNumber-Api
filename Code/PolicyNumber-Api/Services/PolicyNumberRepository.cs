@@ -29,7 +29,7 @@ namespace SuggestiveService.Services
         }
 
 
-        public string GetUpdatePolicyNumber(string productname,string schema)
+        public string GetUpdatePolicyNumber(string productname,string scheme)
         {
             try
             {
@@ -41,12 +41,12 @@ namespace SuggestiveService.Services
                 {
                     //Lock the table during this transaction
                     _context.Database.ExecuteSqlCommand("SELECT TOP 1 ID FROM policynumber WITH (TABLOCKX, HOLDLOCK)");
-                    if (!string.IsNullOrEmpty(productname) && !string.IsNullOrEmpty(schema))
-                        product = _context.PolicyNumber.FirstOrDefault(s => s.Product.Trim() == productname.Trim() && s.Scheme.Trim() == schema.Trim());
+                    if (!string.IsNullOrEmpty(productname) && !string.IsNullOrEmpty(scheme))
+                        product = _context.PolicyNumber.FirstOrDefault(s => s.Product.Trim() == productname.Trim() && s.Scheme.Trim() == scheme.Trim());
                     else if (!string.IsNullOrEmpty(productname))
                         product = _context.PolicyNumber.FirstOrDefault(s => s.Product.Trim() == productname.Trim());
-                    else if (!string.IsNullOrEmpty(schema))
-                        product = _context.PolicyNumber.FirstOrDefault(s => s.Scheme == schema);
+                    else if (!string.IsNullOrEmpty(scheme))
+                        product = _context.PolicyNumber.FirstOrDefault(s => s.Scheme == scheme);
 
                     if (product != null)
                     {

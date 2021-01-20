@@ -12,6 +12,6 @@ namespace SuggestiveService.Interfaces
     /// </summary>
     public interface IPolicyNumberRepository 
     {
-        string GetUpdatePolicyNumber(string productname,string schema);
+        string GetUpdatePolicyNumber(string productname,string scheme);
     }
 }
